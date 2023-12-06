@@ -1,5 +1,4 @@
--- This is a init file to initiate the neovim 
-
+-- This is a init file to initiate the neovim setup 
 
 
 
@@ -20,7 +19,6 @@ require("keymaps")
 
 -----------------------------------------
 
--- setting setups --- 
 
 --line numbers in the neovim 
 
@@ -31,5 +29,15 @@ vim.opt.relativenumber = true
 --clipboard sync 
 
 vim.o.clipboard = 'unnamedplus'
+
+
+-- Save undo history
+
+vim.o.undofile = true
+
+--break indent enable
+
+vim.o.breakindent = true
+
 
 
