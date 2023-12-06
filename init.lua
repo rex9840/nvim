@@ -40,4 +40,3 @@ vim.o.undofile = true
 vim.o.breakindent = true
 
 
-
