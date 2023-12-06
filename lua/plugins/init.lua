@@ -11,7 +11,9 @@ require('lazy').setup({
 	
 	{import = "plugins.git"},
 	{import = "plugins.lsp"},
-	{import = "plugins.qos_programing"}
+	{import = "plugins.qos_programing"},
+	{import = "plugins.theme"},
+	{import = "plugins.ai_helper"},
 
 }, {})
 
@@ -38,6 +40,4 @@ require('telescope').setup()
 
 -- identation color setup
 require("ibl").setup()
-
-
 ----------------------------------------------------------------------
