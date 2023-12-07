@@ -1,11 +1,10 @@
 -- This is a init file to initiate the neovim setup 
 
 
+--set leaderkey as <space>
 
---set leaderkey as <\>
-
-vim.g.mapleader = '\\'
-vim.g.maplocalleader = '\\'
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 
 
