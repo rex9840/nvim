@@ -50,3 +50,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
+
+-- support for the terminal color 
+
+vim.o.termguicolors = true
