@@ -61,8 +61,6 @@ mason_lspconfig.setup_handlers {
 
 
 
-
-
 ----------------------------------------------------------------------
 
 
@@ -95,25 +93,6 @@ cmp.setup {
   --    behavior = cmp.ConfirmBehavior.Replace,
   --    select = true,
   --  },
-  --  ['<Tab>'] = cmp.mapping(function(fallback)
-  --    if cmp.visible() then
-  --      cmp.select_next_item()
-  --    elseif luasnip.expand_or_locally_jumpable() then
-  --      luasnip.expand_or_jump()
-  --    else
-  --      fallback()
-  --    end
-  --  end, { 'i', 's' }),
-  --  ['<S-Tab>'] = cmp.mapping(function(fallback)
-  --    if cmp.visible() then
-  --      cmp.select_prev_item()
-  --    elseif luasnip.locally_jumpable(-1) then
-  --      luasnip.jump(-1)
-  --    else
-  --      fallback()
-  --    end
-  --  end, { 'i', 's' }),
-  --},
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
@@ -142,6 +121,13 @@ require("ibl").setup()
 
 require'barbar'.setup
 {
+	-- Automatically hide the tabline when there are this many buffers left.
+  	-- Set to any value >=0 to enable.
+ 	auto_hide = false,
+
+	--A buffer to this direction will be focused (if it exists) when closing the current buffer.
+	
+	focus_on_close = 'previous', 
 	
 	sidebar_filetypes = {
 	    -- Use the default values: {event = 'BufWinLeave', text = nil}
@@ -153,7 +139,8 @@ require'barbar'.setup
 	    -- Or, specify both
 	    Outline = {event = 'BufWinLeave', text = 'symbols-outline'},
 	  },
-
+	
+	no_name_title = nil,
 
 
 }
