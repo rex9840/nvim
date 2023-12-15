@@ -54,3 +54,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- support for the terminal color 
 
 vim.o.termguicolors = true
+
+
+-- higilight serch results 
+
+vim.o.hlsearch = true
+
