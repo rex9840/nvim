@@ -56,7 +56,5 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.o.termguicolors = true
 
 
--- higilight serch results 
 
-vim.o.hlsearch = true
 
