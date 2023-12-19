@@ -141,18 +141,6 @@ require'barbar'.setup
 	separator = {left = '▎', right = ''},
 	
 
-	diagnostics = {
-	      [vim.diagnostic.severity.ERROR] = {enabled = true, icon = 'ﬀ'},
-	      [vim.diagnostic.severity.WARN] = {enabled = false},
-	      [vim.diagnostic.severity.INFO] = {enabled = false},
-	      [vim.diagnostic.severity.HINT] = {enabled = true},
-	    },
-	    gitsigns = {
-	      added = {enabled = true, icon = '+'},
-	      changed = {enabled = true, icon = '~'},
-	      deleted = {enabled = true, icon = '-'},
-	    },
-
 
 
     	-- If true, add an additional separator at the end of the buffer list
