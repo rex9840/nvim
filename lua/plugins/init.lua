@@ -83,16 +83,16 @@ cmp.setup {
   completion = {
     completeopt = 'menu,menuone,noinsert',
   },
-  --mapping = cmp.mapping.preset.insert {
-  --  ['<C-n>'] = cmp.mapping.select_next_item(),
-  --  ['<C-p>'] = cmp.mapping.select_prev_item(),
-  --  ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-  --  ['<C-f>'] = cmp.mapping.scroll_docs(4),
-  --  ['<C-Space>'] = cmp.mapping.complete {},
-  --  ['<CR>'] = cmp.mapping.confirm {
-  --    behavior = cmp.ConfirmBehavior.Replace,
-  --    select = true,
-  --  },
+  mapping = cmp.mapping.preset.insert {
+     ['<C-n>'] = cmp.mapping.select_next_item(),
+     ['<C-p>'] = cmp.mapping.select_prev_item(),
+     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+     ['<C-f>'] = cmp.mapping.scroll_docs(4),
+     ['<C-Space>'] = cmp.mapping.complete {},
+     ['<CR>'] = cmp.mapping.confirm {
+       behavior = cmp.ConfirmBehavior.Replace,
+       select = true,
+     },},
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
@@ -119,16 +119,45 @@ require("ibl").setup()
 
 -- barbar setup -- 
 
+
+vim.g.barbar_auto_setup = false
+
 require'barbar'.setup
 {
 	-- Automatically hide the tabline when there are this many buffers left.
   	-- Set to any value >=0 to enable.
  	auto_hide = false,
+	-- Enable/disable animations 
+	animation = true,
+	
+	tabpages = true,
+	
+	highlight_alternate = false,
 
-	--A buffer to this direction will be focused (if it exists) when closing the current buffer.
+	highlight_inactive_file_icons = false,
+
+	focus_on_close = 'previous',
 	
-	focus_on_close = 'previous', 
+	separator = {left = '▎', right = ''},
 	
+
+	diagnostics = {
+	      [vim.diagnostic.severity.ERROR] = {enabled = true, icon = 'ﬀ'},
+	      [vim.diagnostic.severity.WARN] = {enabled = false},
+	      [vim.diagnostic.severity.INFO] = {enabled = false},
+	      [vim.diagnostic.severity.HINT] = {enabled = true},
+	    },
+	    gitsigns = {
+	      added = {enabled = true, icon = '+'},
+	      changed = {enabled = true, icon = '~'},
+	      deleted = {enabled = true, icon = '-'},
+	    },
+
+
+
+    	-- If true, add an additional separator at the end of the buffer list
+    	separator_at_end = true,
+
 	sidebar_filetypes = {
 	    -- Use the default values: {event = 'BufWinLeave', text = nil}
 	    NvimTree = true,
