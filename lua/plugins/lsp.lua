@@ -3,8 +3,24 @@
 return{
 
 {
+	'williamboman/mason.nvim',
+	'williamboman/mason-lspconfig.nvim',
+	cmd = 'Mason',
+	build = ":MasonUpdate",
+	  opts = {
+	    ensure_installed = {
+	      "stylua",
+	      "shfmt",
+	      "flake8",
+	    },
 
+	},
+},
 ---------------------------------------------------------------------
+
+{
+
+
 
 
 -- LSP Configuration & Plugins
@@ -17,7 +33,7 @@ return{
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       { 'j-hui/fidget.nvim', opts = {} },},
-	
+    'folke/neodev.nvim',	
 },
 
 ---------------------------------------------------------------------
@@ -40,8 +56,6 @@ return{
 
  },
 
- ---------------------------------------------------------------------
+ --------------------------------------------------------------------
 
-
----------------------------------------------------------------------
 }
