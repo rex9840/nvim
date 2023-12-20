@@ -24,45 +24,13 @@ require('lazy').setup({
 require("mason").setup()
 require("mason-lspconfig").setup(
 {
- ensure_installed = { "lua_ls", "rust_analyzer"},
+ ensure_installed = { "lua_ls"},
 
 })
 
 
 
-local mason_lspconfig = require 'mason-lspconfig'
-local servers = {
-  lua_ls = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-      -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-      -- diagnostics = { disable = { 'missing-fields' } },
-    },
-  },
-}
-
-
-
-mason_lspconfig.setup {
-  ensure_installed = vim.tbl_keys(servers),
-}
-
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-      filetypes = (servers[server_name] or {}).filetypes,
-    }
-  end,
-}
-
-
-
-----------------------------------------------------------------------
-
+---------------------------------------------------------------------
 
 -- auto complete setup -- 
 
@@ -99,11 +67,7 @@ cmp.setup {
   },
 }
 
-
-
-
 ---------------------------------------------------------------------
-
 -- telescope setup -- 
 
 require('telescope').setup()
@@ -140,9 +104,6 @@ require'barbar'.setup
 	
 	separator = {left = '▎', right = ''},
 	
-
-
-
     	-- If true, add an additional separator at the end of the buffer list
     	separator_at_end = true,
 
@@ -158,6 +119,7 @@ require'barbar'.setup
 	  },
 	
 	no_name_title = nil,
+	letters = 'asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP',
 
 
 }
