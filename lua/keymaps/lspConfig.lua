@@ -5,11 +5,17 @@ local on_attach = function(_, bufnr)
     end
 
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
-  end 
+  end
 
-  local opts = { buffer = bufnr }
+  local opts = { buffer = ev.buf }
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation', opts)
   nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation', opts)
-end
 
+  -- Create a command `:Format` local to the LSP buffer
+  
+
+  vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
+    vim.lsp.buf.format()
+  end, { desc = 'Format current buffer with LSP' })
+end
 
