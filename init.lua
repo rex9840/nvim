@@ -46,9 +46,6 @@ vim.o.autoindent = true
 vim.o.smartindent = true
 
 
-vim.o.softtabstop = 4
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
 
 
 --highlight on yank 
@@ -67,6 +64,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 vim.o.termguicolors = true
 
+-- dev icons
 
+vim.g.webdevicons_enable = 1
 
 
