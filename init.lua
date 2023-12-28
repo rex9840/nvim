@@ -71,9 +71,6 @@ vim.g.webdevicons_enable = 1
 --- netrw settings 
 
 vim.g.netrw_winsize = 25
-vim.g.netwr_keepdir = 0
-
-
 
 
 
