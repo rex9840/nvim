@@ -1,6 +1,5 @@
 
 
-print("--plugins initated--")
 
 
 ---------------------------------------------------------------------
@@ -48,21 +47,21 @@ end
 require("mason").setup()
 require("mason-lspconfig").setup(
 {
- ensure_installed = { "lua_ls"},
-
+    ensure_installed = { "lua_ls"},
+    automatic_installation = true,
 })
 
 local servers = {
-  -- clangd = {},
-  -- gopls = {},
-  -- pyright = {},
-  -- rust_analyzer = {},
-  -- tsserver = {},
-  -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+  clangd = {},
+  pyright = {},
+  rust_analyzer = {},
+  tsserver = {},
+  bashls = {},
+  html = { filetypes = { 'html', 'twig', 'hbs'} },
 
   lua_ls = {
     Lua = {
-      workspace = { checkThirdParty = false },
+      workspace = { checkThirdParty = false},
       telemetry = { enable = false },
       -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
       -- diagnostics = { disable = { 'missing-fields' } },
@@ -180,13 +179,6 @@ require'barbar'.setup
     	separator_at_end = true,
 
 	sidebar_filetypes = {
-	    -- Use the default values: {event = 'BufWinLeave', text = nil}
-	    NvimTree = true,
-	    -- Or, specify the text used for the offset:
-	    undotree = {text = 'undotree'},
-	    -- Or, specify the event which the sidebar executes when leaving:
-	    ['neo-tree'] = {event = 'BufWipeout'},
-	    -- Or, specify both
 	    Outline = {event = 'BufWinLeave', text = 'symbols-outline'},
 	  },
 	

@@ -1,20 +1,7 @@
 
-return 
+return
 {
 ---------------------------------------------------------
-	-- nvim  directories tree structure -- 
-
-	 {
-		"nvim-tree/nvim-tree.lua",
-		version = "*",
-		lazy = false,
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-		},
-		config = function()
-			require("nvim-tree").setup {}
-		end,
-	},
 ------------------------------------------------------------------
 
 	--revover.vim for swap file handelling
@@ -93,4 +80,11 @@ return
 
 
 ------------------------------------------------------------------------
+
+-- auto paring of brases columns
+
+{
+  'jiangmiao/auto-pairs'
+},
+
 }
