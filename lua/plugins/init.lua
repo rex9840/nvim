@@ -177,10 +177,6 @@ require'barbar'.setup
 	
     	-- If true, add an additional separator at the end of the buffer list
     	separator_at_end = true,
-
-	sidebar_filetypes = {
-	    Outline = {event = 'BufWinLeave', text = 'symbols-outline'},
-	  },
 	
 	no_name_title = nil,
 	letters = 'asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP',
