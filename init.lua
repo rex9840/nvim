@@ -22,7 +22,6 @@ require("keymaps")
 --line numbers in the neovim 
 
 vim.wo.number = true 
-vim.opt.relativenumber = true
 
 
 --clipboard sync 
@@ -70,7 +69,5 @@ vim.g.webdevicons_enable = 1
 
 --- netrw settings 
 
-vim.g.netrw_winsize = 25
-
-
-
+vim.g.netrw_winsize = 20
+vim.o.autochdir = true
