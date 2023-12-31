@@ -10,6 +10,7 @@ return
 },
 -------------------------------------------------------------------
 
+-- devicons 
 {
     "ryanoasis/vim-devicons",
     lazy = false,
@@ -19,8 +20,19 @@ return
 	end,
     opts = {},
 
-}
+},
 
+-------------------------------------------------------------------
+
+
+-- status line 
+{
+  'nvim-lualine/lualine.nvim',
+  requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+},
+
+
+------------------------------------------------------------------------
 
 }
 

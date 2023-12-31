@@ -89,15 +89,6 @@ return
 
 ------------------------------------------------------------------------
 
--- status line 
-{
-  'nvim-lualine/lualine.nvim',
-  requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-},
-
-
-------------------------------------------------------------------------
-
 -- auto paring of brases columns
 
 {

@@ -155,9 +155,6 @@ require("ibl").setup()
 
 -- barbar setup -- 
 
-
-vim.g.barbar_auto_setup = false
-
 require'barbar'.setup
 {
 	-- Automatically hide the tabline when there are this many buffers left.
@@ -174,18 +171,41 @@ require'barbar'.setup
 
 	focus_on_close = 'previous',
 	
-	separator = {left = '▎', right = ''},
+	separator = {left = '▎', right =''},
 	
     	-- If true, add an additional separator at the end of the buffer list
     	separator_at_end = true,
+
+        icons = {
+            -- Configure the base icons on the bufferline.
+            -- Valid options to display the buffer index and -number are `true`, 'superscript' and 'subscript'
+            buffer_index = true,
+            buffer_number = false,
+            button = '',
+            gitsigns = {
+              added = {enabled = true, icon = '+'},
+              changed = {enabled = true, icon = '~'},
+              deleted = {enabled = true, icon = '-'},
+            },
+        },
+        filetype = {
+        -- Sets the icon's highlight group.
+        -- If false, will use nvim-web-devicons colors
+                custom_colors = true,
+
+        -- Requires `nvim-web-devicons` if `true`
+                enabled = true,
+        },
+        alternate = {filetype = {enabled = false}},
+        current = {buffer_index = true},
+        inactive = {button = '×'},
+        visible = {modified = {buffer_number = false}},
 
 	sidebar_filetypes = {
 	    Outline = {event = 'BufWinLeave', text = 'symbols-outline'},
 	},
 	no_name_title = nil,
 	letters = 'asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP',
-
-
 }
 ----------------------------------------------------------------------------------
 
