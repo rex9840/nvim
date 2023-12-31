@@ -72,7 +72,7 @@ return
 
 ------------------------------------------------------------------------
 
-
+-- status line 
 {
   'nvim-lualine/lualine.nvim',
   requires = { 'nvim-tree/nvim-web-devicons', opt = true }
@@ -84,7 +84,9 @@ return
 -- auto paring of brases columns
 
 {
-  'jiangmiao/auto-pairs'
+  'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    opts = {} 
 },
 
 }
