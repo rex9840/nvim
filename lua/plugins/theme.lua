@@ -1,13 +1,14 @@
 return
 {
 --------------------------------------------------------------
-
+-- colorscheme
 {
   "folke/tokyonight.nvim",
   lazy = false,
   priority = 1000,
   opts = {},
 },
+
 -------------------------------------------------------------------
 
 -- devicons 
@@ -34,6 +35,36 @@ return
 
 ------------------------------------------------------------------------
 
+-- identation blackline 
+
+{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+
+
+------------------------------------------------------------------------
+-- barbar plugins
+
+{
+    'romgrk/barbar.nvim',
+    dependencies = {
+      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+      'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+    },
+    init = function() vim.g.barbar_auto_setup = true end,
+    opts = {},
+    version = '^1.0.0',
+},
+
+----------------------------------------------------------------------
+
+--nvim-tree setup
+
+{       
+        'kyazdani42/nvim-tree.lua',
+        dependencies = { 'kyazdani42/nvim-web-devicons' },
+        opts = {}
+},
+
+------------------------------------------------------------------------
 }
 
 

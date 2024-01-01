@@ -182,11 +182,6 @@ require'barbar'.setup
             buffer_index = true,
             buffer_number = false,
             button = '',
-            gitsigns = {
-              added = {enabled = true, icon = '+'},
-              changed = {enabled = true, icon = '~'},
-              deleted = {enabled = true, icon = '-'},
-            },
         },
         filetype = {
         -- Sets the icon's highlight group.
@@ -226,7 +221,6 @@ require('lualine').setup()
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
--- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
@@ -239,6 +233,36 @@ end, 0)
 
 ---------------------------------------------------------------------------------
 
+-- nvim-tree setup --
+
+require("nvim-tree").setup({
+  sort = {
+    sorter = "case_sensitive",
+  },
+  view = {
+    width = 30,
+  },
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = true,
+  },
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------
 -- nvim-autopairs setup --
 
 local npairs = require('nvim-autopairs')
