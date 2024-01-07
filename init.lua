@@ -71,3 +71,8 @@ vim.g.webdevicons_enable = 1
 
 vim.g.netrw_winsize = 25
 vim.o.autochdir = true
+
+-- cursor sizes
+
+vim.o.guicursor = 'i:block-Cursor'
+
