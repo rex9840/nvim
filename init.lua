@@ -75,3 +75,5 @@ vim.o.autochdir = true
 
 vim.o.guicursor = 'i:block-Cursor'
 
+-- relative line numbers
+vim.o.relativenumber = true 
