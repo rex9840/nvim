@@ -21,7 +21,7 @@ return
 },
 ------------------------------------------------------------------
 
-	--revover.vim for swap file handelling
+--revover.vim for swap file handelling
 	{
 		"chrisbra/recover.vim",
 		lazy = false,
@@ -32,7 +32,7 @@ return
 	},
 --------------------------------------------------------------------
 	
-	-- Fuzzy Finder (files, lsp, etc)
+-- Fuzzy Finder (files, lsp, etc)
 	  {
 	    'nvim-telescope/telescope.nvim',
 	    tag = '0.1.5',
@@ -72,6 +72,7 @@ return
 {
   'windwp/nvim-autopairs',
     event = "InsertEnter",
+    config = true,
     opts = {} 
 },
 
