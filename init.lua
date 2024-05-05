@@ -77,3 +77,13 @@ vim.o.guicursor = 'i:block-Cursor'
 
 -- relative line numbers
 vim.o.relativenumber = true 
+
+-- Langauge 
+
+
+vim.opt.spelllang = 'en_us'
+vim.opt.spell = true
+
+
+
+
