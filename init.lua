@@ -80,10 +80,13 @@ vim.o.relativenumber = true
 
 -- Langauge 
 
-
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = true
 
+
+-- disable mouse 
+
+vim.o.mouse = '' 
 
 
 
