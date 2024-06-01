@@ -1,4 +1,4 @@
--- This is a init file to initiate the neovim setup 
+-- This is a init file to initiate the neovim setup
 
 
 --set leaderkey as <space>
@@ -19,12 +19,12 @@ require("keymaps")
 -----------------------------------------
 
 
---line numbers in the neovim 
+--line numbers in the neovim
 
-vim.wo.number = true 
+vim.wo.number = true
 
 
---clipboard sync 
+--clipboard sync
 
 vim.o.clipboard = 'unnamedplus'
 
@@ -37,7 +37,7 @@ vim.o.undofile = true
 
 vim.o.breakindent = true
 
--- tab settings 
+-- tab settings
 
 vim.o.expandtab = true
 vim.o.smarttab = true
@@ -47,19 +47,19 @@ vim.o.smartindent = true
 
 
 
---highlight on yank 
+--highlight on yank
 
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
+        callback = function()
+                vim.highlight.on_yank()
+        end,
+        group = highlight_group,
+        pattern = '*',
 })
 
 
--- support for the terminal color 
+-- support for the terminal color
 
 vim.o.termguicolors = true
 
@@ -67,7 +67,7 @@ vim.o.termguicolors = true
 
 vim.g.webdevicons_enable = 1
 
---- netrw settings 
+--- netrw settings
 vim.g.netrw_winsize = 25
 vim.o.autochdir = true
 
@@ -76,17 +76,14 @@ vim.o.autochdir = true
 vim.o.guicursor = 'i:block-Cursor'
 
 -- relative line numbers
-vim.o.relativenumber = true 
+vim.o.relativenumber = true
 
--- Langauge 
+-- Langauge
 
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = true
 
 
--- disable mouse 
+-- disable mouse
 
-vim.o.mouse = '' 
-
-
-
+vim.o.mouse = ''
