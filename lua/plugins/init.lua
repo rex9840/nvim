@@ -53,15 +53,39 @@ end
 
 ---------------------------------------------------------------------
 
-
 --lsp mason setup -- 
 
-require("mason").setup()
+require("mason").setup(
+{
+    ui = {
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+        }
+    }
+}
+
+)
 require("mason-lspconfig").setup(
 {
     ensure_installed = { "lua_ls"},
     automatic_installation = true,
 })
+
+
+local null_ls = require("null-ls")
+
+null_ls.setup({
+  sources = {
+    null_ls.builtins.formatting.black,
+    null_ls.builtins.formatting.stylua,
+    null_ls.builtins.diagnostics.eslint,
+    null_ls.builtins.completion.spell,
+  },
+})
+
+
 
 local servers = {
   clangd = {},
@@ -80,6 +104,8 @@ local servers = {
     },
   },
 }
+
+
 
 -- Setup neovim lua configuration
 require('neodev').setup()

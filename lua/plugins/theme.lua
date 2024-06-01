@@ -35,7 +35,9 @@ return
 -- status line 
 {
   'nvim-lualine/lualine.nvim',
-  requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  requires = { 'nvim-tree/nvim-web-devicons', 
+                'kyazdani42/nvim-web-devicons',
+  opt = true }
 },
 
 
