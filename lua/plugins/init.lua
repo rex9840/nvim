@@ -174,23 +174,31 @@ cmp.setup {
 
 require('telescope').setup(
         {
-                extensions = {
-                        file_browser = {
-                                theme = "ivy",
-                                -- disables netrw and use telescope-file-browser in its place
-                                hijack_netrw = true,
-                                mappings = {
-                                        ["i"] = {
-                                                -- your custom insert mode mappings
-                                        },
-                                        ["n"] = {
-                                                -- your custom normal mode mappings
-                                        },
-                                },
+                defaults = {
+                        scroll_strategy = "limit",
+                        file_ignore_patterns = { ".git/[^h]" },
+                        theme = "center",
+                        sorting_strategy = "ascending",
+                        layout_config = {
+                                horizontal = {
+                        prompt_position = "top",
+                        preview_width = 0.3,
                         },
                 },
-        }
-)
+        },
+                pickers = {
+                        find_files = {
+                                hidden = true,
+                        }
+                },
+                extensions = {
+                        file_browser = {
+                                mappings = {
+                                        ["i"] = {}, ["n"] = {}, 
+                                }, 
+                        } 
+                }
+}) 
 
 require("telescope").load_extension "file_browser"
 
