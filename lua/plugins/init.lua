@@ -176,16 +176,16 @@ require('telescope').setup(
         {
                 defaults = {
                         scroll_strategy = "limit",
-                        file_ignore_patterns = { ".git/[^h]" },
+                        file_ignore_patterns = { ".git/*", "node_modules/*", ".venv/*" },
                         theme = "center",
                         sorting_strategy = "ascending",
                         layout_config = {
                                 horizontal = {
-                        prompt_position = "top",
-                        preview_width = 0.3,
+                                        prompt_position = "top",
+                                        preview_width = 0.3,
+                                },
                         },
                 },
-        },
                 pickers = {
                         find_files = {
                                 hidden = true,
@@ -193,12 +193,15 @@ require('telescope').setup(
                 },
                 extensions = {
                         file_browser = {
+                                disable_devicons = false,
+                                show_hidden = true,
+                                hijack_netrw = true,
                                 mappings = {
-                                        ["i"] = {}, ["n"] = {}, 
-                                }, 
-                        } 
+                                        ["i"] = {}, ["n"] = {},
+                                },
+                        }
                 }
-}) 
+        })
 
 require("telescope").load_extension "file_browser"
 
