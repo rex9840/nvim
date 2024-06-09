@@ -186,23 +186,8 @@ require('telescope').setup(
                                 },
                         },
                 },
-                pickers = {
-                        find_files = {
-                                hidden = true,
-
-                        },
-                },
-                file_browser = {
-                        hijack_netrw = true,
-                        mappings = {
-                                ["i"] = {},
-                                ["n"] = {},
-
-                        },
-                },
-
-
-        })
+                pickers = {},
+       })
 --[[for grep to work install ripgrep form the github : https://github.com/BurntSushi/ripgrep ]]
 
 pcall(require('telescope').load_extension, 'media_files')
