@@ -190,10 +190,7 @@ require('telescope').setup(
        })
 --[[for grep to work install ripgrep form the github : https://github.com/BurntSushi/ripgrep ]]
 
-pcall(require('telescope').load_extension, 'media_files')
 pcall(require('telescope').load_extension, 'file_browser')
-pcall(require('telescope').load_extension, 'fzf')
-pcall(require('telescope').load_extension, 'fzy_native')
 ---------------------------------------------------------------------
 --comment.nvim setup --
 
