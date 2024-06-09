@@ -193,6 +193,8 @@ require('telescope').setup(
                         },
                 },
         })
+        --[[for grep to work install ripgrep form the github : https://github.com/BurntSushi/ripgrep ]] 
+
 pcall(require('telescope').load_extension, 'fzf')
 pcall(require('telescope').load_extension, 'fzy_native')
 ---------------------------------------------------------------------
