@@ -26,6 +26,7 @@ return
                         vim.g.webdevicons_enable = 1
                 end,
                 opts = {},
+                enabled = vim.g.have_nerd_font
 
         },
 
@@ -37,7 +38,6 @@ return
                 'nvim-lualine/lualine.nvim',
                 requires = {
                         'nvim-tree/nvim-web-devicons',
-                        'kyazdani42/nvim-web-devicons',
                         opt = true
                 }
         },
@@ -74,5 +74,6 @@ return
         --        opts = {}
         --},
         --
-        ------------------------------------------------------------------------
-}
+        ------------------------------------------------------------------------ 
+                
+        }

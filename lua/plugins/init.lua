@@ -24,7 +24,7 @@ local on_attach = function(_, bufnr)
                 end
 
                 vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
-        end
+       end
 
         nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
         nmap('<C-K>', vim.lsp.buf.signature_help, 'Signature Documentation')
@@ -189,24 +189,18 @@ require('telescope').setup(
                 pickers = {
                         find_files = {
                                 hidden = true,
-                        }
+
+                        },
                 },
-                extensions = {
-                        file_browser = {
-                                disable_devicons = false,
-                                show_hidden = true,
-                                hijack_netrw = true,
-                                mappings = {
-                                        ["i"] = {}, ["n"] = {},
-                                },
-                        }
-                }
         })
-
-require("telescope").load_extension "file_browser"
-
+pcall(require('telescope').load_extension, 'fzf')
+pcall(require('telescope').load_extension, 'fzy_native')
 ---------------------------------------------------------------------
+--comment.nvim setup --
 
+require('Comment').setup()
+
+----------------------------------------------------------------------
 -- identation color setup
 
 require("ibl").setup()

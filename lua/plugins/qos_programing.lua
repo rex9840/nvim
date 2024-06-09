@@ -38,6 +38,7 @@ return
                 branch = '0.1.x',
                 dependencies = {
                         'nvim-lua/plenary.nvim',
+                        'nvim-telescope/telescope-fzf-native.nvim',
                 },
         },
         ----------------------------------------------------------------------
@@ -82,9 +83,18 @@ return
 
         -- telescope-file-browser
 
-        {
-                "nvim-telescope/telescope-file-browser.nvim",
-                dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
-        },
+        -- {
+        --        "nvim-telescope/telescope-file-browser.nvim",
+        --        dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+        -- },
+        ---------------------------------------------------------------------
 
+        -- comment.vim
+        {
+                'numToStr/Comment.nvim',
+                opts = {
+                        -- add any options here
+                },
+                lazy = false,
+        }
 }
