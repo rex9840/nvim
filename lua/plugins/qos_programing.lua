@@ -20,22 +20,9 @@ return
         },
         ------------------------------------------------------------------
 
-        --revover.vim for swap file handelling
-        {
-                "chrisbra/recover.vim",
-                lazy = false,
-                version = "*",
-                config = function()
-                        vim.g.recover_filetypes = "all"
-                end,
-        },
-        --------------------------------------------------------------------
-
         -- Fuzzy Finder (files, lsp, etc)
         {
                 'nvim-telescope/telescope.nvim',
-                tag = '0.1.5',
-                branch = '0.1.x',
                 dependencies = {
                         'nvim-lua/plenary.nvim',
                         'nvim-telescope/telescope-fzf-native.nvim',

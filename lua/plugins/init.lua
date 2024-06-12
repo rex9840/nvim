@@ -70,14 +70,31 @@ require("mason-lspconfig").setup(
 local null_ls = require("null-ls")
 local eslint = require("eslint")
 
+-- null_ls setup --
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
         sources = {
                 null_ls.builtins.formatting.black,
                 null_ls.builtins.formatting.stylua,
                 null_ls.builtins.completion.spell,
         },
-})
+        -- save on write --
+        on_attach = function(client, bufnr)
+                if client.supports_method("textDocument/formatting") then
+                        vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+                        vim.api.nvim_create_autocmd("BufWritePre", {
+                                group = augroup,
+                                buffer = bufnr,
+                                callback = function()
+                                        -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+                                        -- on later neovim version, you should use vim.lsp.buf.format({ async = false }) instead
+                                        vim.lsp.buf.format({ async = false })
+                                end,
+                        })
+                end
+        end,
 
+})
 
 
 local servers = {
@@ -186,8 +203,7 @@ require('telescope').setup(
                                 },
                         },
                 },
-                pickers = {},
-       })
+        })
 --[[for grep to work install ripgrep form the github : https://github.com/BurntSushi/ripgrep ]]
 
 pcall(require('telescope').load_extension, 'file_browser')
