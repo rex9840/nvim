@@ -87,3 +87,7 @@ vim.opt.spell = true
 -- disable mouse
 
 vim.o.mouse = ''
+
+-- lsp formatter time out config --
+
+vim.lsp.buf.format({ timeout_ms = 2000 })
