@@ -242,6 +242,7 @@ require("ibl").setup()
 -- lua line --
 
 require("lualine").setup()
+require("lualine").get_config()
 
 ---------------------------------------------------------------------------------
 
