@@ -87,3 +87,4 @@ vim.opt.spell = true
 -- disable mouse
 
 vim.o.mouse = ''
+
