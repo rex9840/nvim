@@ -79,7 +79,6 @@ local servers = {
         clangd = {},
         pyright = {},
         rust_analyzer = {},
-        tsserver = {},
         bashls = {},
         html = { filetypes = { "html", "twig", "hbs" } },
 
@@ -277,9 +276,13 @@ vim.defer_fn(function()
                 auto_install = true,
         })
 end, 0)
+-----------------------------------------------------------------------
+-- outline
+require("outline").setup({})
+ 
 
----------------------------------------------------------------------------------
 
+--------------------------------------------------------------------------------- 
 --require("nvim-tree").setup({
 --  sort = {
 --    sorter = "case_sensitive",
