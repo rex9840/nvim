@@ -56,8 +56,5 @@ return {
         -- outline
         {
                 "hedyhli/outline.nvim",
-                config = function()
-                        vim.keymap.set("n", "<leader>o", "<cmd>Outline<CR>", { desc = "Toggle Outline" })
-                end,
         },
 }
