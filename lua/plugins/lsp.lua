@@ -56,5 +56,7 @@ return {
         -- outline
         {
                 "hedyhli/outline.nvim",
+                lazy = true,
+                cmd = { "Outline", "OutlineOpen" },
         },
 }
