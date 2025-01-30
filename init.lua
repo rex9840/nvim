@@ -88,3 +88,13 @@ vim.opt.spell = true
 
 vim.o.mouse = ''
 
+-- copilot  node configuration 
+
+local node_version = "v18.20.4"
+local distribution = vim.fn.system("lsb_release -i -s")
+distribution = distribution:gsub("%s+", "")
+
+-- Set the node command based on the distribution
+if distribution == "Ubuntu" then
+        vim.g.copilot_node_command = string.format("~/.nvm/versions/node/%s/bin/node", node_version)
+end
