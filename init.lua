@@ -70,6 +70,7 @@ vim.g.webdevicons_enable = 1
 --- netrw settings
 vim.g.netrw_winsize = 25
 vim.o.autochdir = true
+vim.opt.termguicolors = true
 
 -- cursor sizes
 

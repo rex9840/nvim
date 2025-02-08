@@ -5,6 +5,7 @@ require("keymaps.error_diagnosis")
 -- require("keymaps.barbar")
 require("keymaps.telescope")
 require("keymaps.lsp")
+require("keymaps.nvim-tree")
 
 ---------------------------------------------------------------------
 
