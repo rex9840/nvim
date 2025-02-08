@@ -68,12 +68,12 @@ return
 
         --nvim-tree setup
 
-        --{
-        --        'kyazdani42/nvim-tree.lua',
-        --        dependencies = { 'kyazdani42/nvim-web-devicons' },
-        --        opts = {}
-        --},
-        --
+        {
+               'kyazdani42/nvim-tree.lua',
+               dependencies = { 'kyazdani42/nvim-web-devicons' },
+               opts = {}
+        },
+
         ------------------------------------------------------------------------ 
                 
         }

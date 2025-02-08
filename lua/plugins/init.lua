@@ -289,23 +289,23 @@ require("outline").setup({
 })
 
 ---------------------------------------------------------------------------------
---require("nvim-tree").setup({
---  sort = {
---    sorter = "case_sensitive",
---  },
---  view = {
---    width = 30,
---  },
---  renderer = {
---    group_empty = true,
---  },
---  filters = {
---    dotfiles = false,
---  },
---  git={
---          ignore = false,
---  }
---})
+require("nvim-tree").setup({
+ sort = {
+   sorter = "case_sensitive",
+ },
+ view = {
+   width = 30,
+ },
+ renderer = {
+   group_empty = true,
+ },
+ filters = {
+   dotfiles = false,
+ },
+ git={
+         ignore = false,
+ }
+})
 
 ---------------------------------------------------------------------------------
 -- nvim-autopairs setup --
