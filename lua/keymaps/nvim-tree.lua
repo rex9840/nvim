@@ -1,1 +1,1 @@
-vim.keymap.set("n", "<leader>be","<cmd>NvimTreeOpen<CR>", { desc = "Open file [E]xplorer" })
+vim.keymap.set("n", "<leader>be","<cmd>NvimTreeToggle<CR>", { desc = "Open file [E]xplorer" })
