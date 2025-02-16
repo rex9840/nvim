@@ -99,3 +99,6 @@ distribution = distribution:gsub("%s+", "")
 if distribution == "Ubuntu" then
         vim.g.copilot_node_command = string.format("~/.nvm/versions/node/%s/bin/node", node_version)
 end
+
+-- disable swap file
+vim.opt.swapfile = false
