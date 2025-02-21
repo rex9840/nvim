@@ -4,11 +4,11 @@
 
 require("lazy").setup({
 
-        { import = "plugins.git" },
-        { import = "plugins.lsp" },
-        { import = "plugins.qos_programing" },
-        { import = "plugins.theme" },
-        { import = "plugins.ai_helper" },
+	{ import = "plugins.git" },
+	{ import = "plugins.lsp" },
+	{ import = "plugins.qos_programing" },
+	{ import = "plugins.theme" },
+	{ import = "plugins.ai_helper" },
 }, {})
 
 ---------------------------------------------------------------------
@@ -16,28 +16,28 @@ require("lazy").setup({
 --lsp config --
 
 local on_attach = function(_, bufnr)
-        local nmap = function(keys, func, desc)
-                if desc then
-                        desc = "LSP: " .. desc
-                end
+	local nmap = function(keys, func, desc)
+		if desc then
+			desc = "LSP: " .. desc
+		end
 
-                vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
-        end
+		vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
+	end
 
-        nmap("K", vim.lsp.buf.hover, "Hover Documentation")
-        nmap("<C-K>", vim.lsp.buf.signature_help, "Signature Documentation")
+	nmap("K", vim.lsp.buf.hover, "Hover Documentation")
+	nmap("<C-K>", vim.lsp.buf.signature_help, "Signature Documentation")
 
-        -- Create a command `:Format` local to the LSP buffer
-        vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
-                vim.lsp.buf.format()
-        end, { desc = "Format current buffer with LSP" })
+	-- Create a command `:Format` local to the LSP buffer
+	vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
+		vim.lsp.buf.format()
+	end, { desc = "Format current buffer with LSP" })
 
-        vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-                -- disable virtual text
-                virtual_text = false,
-                -- show signs
-                signs = true,
-        })
+	vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+		-- disable virtual text
+		virtual_text = false,
+		-- show signs
+		signs = true,
+	})
 end
 
 ---------------------------------------------------------------------
@@ -45,17 +45,17 @@ end
 --lsp mason setup --
 
 require("mason").setup({
-        ui = {
-                icons = {
-                        package_installed = "✓",
-                        package_pending = "➜",
-                        package_uninstalled = "✗",
-                },
-        },
+	ui = {
+		icons = {
+			package_installed = "✓",
+			package_pending = "➜",
+			package_uninstalled = "✗",
+		},
+	},
 })
 require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls" },
-        automatic_installation = true,
+	ensure_installed = { "lua_ls" },
+	automatic_installation = true,
 })
 
 local null_ls = require("null-ls")
@@ -64,31 +64,31 @@ local eslint = require("eslint")
 -- null_ls setup --
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
-        sources = {
-                null_ls.builtins.formatting.black,
-                null_ls.builtins.formatting.stylua,
-        },
+	sources = {
+		null_ls.builtins.formatting.black,
+		null_ls.builtins.formatting.stylua,
+	},
 
-        formatting = {
-                timeout_ms = 3200,
-        },
+	formatting = {
+		timeout_ms = 3200,
+	},
 })
 
 local servers = {
-        clangd = {},
-        pyright = {},
-        rust_analyzer = {},
-        bashls = {},
-        html = { filetypes = { "html", "twig", "hbs" } },
+	clangd = {},
+	pyright = {},
+	rust_analyzer = {},
+	bashls = {},
+	html = { filetypes = { "html", "twig", "hbs" } },
 
-        lua_ls = {
-                Lua = {
-                        workspace = { checkThirdParty = false },
-                        telemetry = { enable = false },
-                        -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-                        -- diagnostics = { disable = { 'missing-fields' } },
-                },
-        },
+	lua_ls = {
+		Lua = {
+			workspace = { checkThirdParty = false },
+			telemetry = { enable = false },
+			-- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+			-- diagnostics = { disable = { 'missing-fields' } },
+		},
+	},
 }
 
 -- Setup neovim lua configuration
@@ -102,18 +102,18 @@ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 local mason_lspconfig = require("mason-lspconfig")
 
 mason_lspconfig.setup({
-        ensure_installed = vim.tbl_keys(servers),
+	ensure_installed = vim.tbl_keys(servers),
 })
 
 mason_lspconfig.setup_handlers({
-        function(server_name)
-                require("lspconfig")[server_name].setup({
-                        capabilities = capabilities,
-                        on_attach = on_attach,
-                        settings = servers[server_name],
-                        filetypes = (servers[server_name] or {}).filetypes,
-                })
-        end,
+	function(server_name)
+		require("lspconfig")[server_name].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			settings = servers[server_name],
+			filetypes = (servers[server_name] or {}).filetypes,
+		})
+	end,
 })
 
 ---------------------------------------------------------------------
@@ -129,49 +129,49 @@ require("luasnip.loaders.from_vscode").lazy_load()
 luasnip.config.setup({})
 
 cmp.setup({
-        snippet = {
-                expand = function(args)
-                        luasnip.lsp_expand(args.body)
-                end,
-        },
-        completion = {
-                completeopt = "menu,menuone,noinsert",
-        },
-        mapping = cmp.mapping.preset.insert({
-                ["<C-n>"] = cmp.mapping.select_next_item(),
-                ["<C-p>"] = cmp.mapping.select_prev_item(),
-                ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-                ["<C-f>"] = cmp.mapping.scroll_docs(4),
-                ["<C-Space>"] = cmp.mapping.complete({}),
-                ["<CR>"] = cmp.mapping.confirm({
-                        behavior = cmp.ConfirmBehavior.Replace,
-                        select = true,
-                }),
-        }),
+	snippet = {
+		expand = function(args)
+			luasnip.lsp_expand(args.body)
+		end,
+	},
+	completion = {
+		completeopt = "menu,menuone,noinsert",
+	},
+	mapping = cmp.mapping.preset.insert({
+		["<C-n>"] = cmp.mapping.select_next_item(),
+		["<C-p>"] = cmp.mapping.select_prev_item(),
+		["<C-d>"] = cmp.mapping.scroll_docs(-4),
+		["<C-f>"] = cmp.mapping.scroll_docs(4),
+		["<C-Space>"] = cmp.mapping.complete({}),
+		["<CR>"] = cmp.mapping.confirm({
+			behavior = cmp.ConfirmBehavior.Replace,
+			select = true,
+		}),
+	}),
 
-        sources = {
-                { name = "nvim_lsp" },
-                { name = "luasnip" },
-                { name = "path" },
-                { name = "buffer" },
-        },
+	sources = {
+		{ name = "nvim_lsp" },
+		{ name = "luasnip" },
+		{ name = "path" },
+		{ name = "buffer" },
+	},
 })
 
 ---------------------------------------------------------------------
 -- telescope setup --
 
 require("telescope").setup({
-        defaults = {
-                file_ignore_patterns = { "*.git", "node_modules/*", ".venv/*" },
-                theme = "center",
-                sorting_strategy = "ascending",
-                layout_config = {
-                        horizontal = {
-                                prompt_position = "top",
-                                preview_width = 0.4,
-                        },
-                },
-        },
+	defaults = {
+		file_ignore_patterns = { "*.git", "node_modules/*", ".venv/*" },
+		theme = "center",
+		sorting_strategy = "ascending",
+		layout_config = {
+			horizontal = {
+				prompt_position = "top",
+				preview_width = 0.4,
+			},
+		},
+	},
 })
 --[[for grep to work install ripgrep form the github : https://github.com/BurntSushi/ripgrep ]]
 --[[for smooth control over telescope install fuzzy finder fzf from the github :https://github.com/junegunn/fzf ]]
@@ -254,59 +254,64 @@ require("lualine").get_config()
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
 vim.defer_fn(function()
-        require("nvim-treesitter.configs").setup({
-                -- Add languages to be installed here that you want installed for treesitter
-                ensure_installed = {
-                        "c",
-                        "cpp",
-                        "go",
-                        "lua",
-                        "python",
-                        "rust",
-                        "tsx",
-                        "javascript",
-                        "typescript",
-                        "vimdoc",
-                        "vim",
-                        "bash",
-                        "lua",
-                        "gitcommit",
-                        "diff",
-                        "git_rebase",
-                },
+	require("nvim-treesitter.configs").setup({
+		-- Add languages to be installed here that you want installed for treesitter
+		ensure_installed = {
+			"c",
+			"cpp",
+			"go",
+			"lua",
+			"python",
+			"rust",
+			"tsx",
+			"javascript",
+			"typescript",
+			"vimdoc",
+			"vim",
+			"bash",
+			"lua",
+			"gitcommit",
+			"diff",
+			"git_rebase",
+		},
 
-                -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-                auto_install = true,
-        })
+		-- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
+		auto_install = true,
+	})
 end, 0)
 -----------------------------------------------------------------------
 -- outline
 require("outline").setup({
-        width = 10,
-        preview_window = {
-                auto_preview = true,
-        },
+	width = 10,
+	preview_window = {
+		auto_preview = true,
+	},
 })
 
 ---------------------------------------------------------------------------------
 require("nvim-tree").setup({
- sort = {
-   sorter = "case_sensitive",
- },
- view = {
-   width = 30,
-   side = "right"
- },
- renderer = {
-   group_empty = true,
- },
- filters = {
-   dotfiles = false,
- },
- git={
-         ignore = false,
-        timeout = 800,
- }
+	sort = {
+		sorter = "case_sensitive",
+	},
+	view = {
+		width = 30,
+		side = "right",
+	},
+	renderer = {
+		group_empty = true,
+	},
+	filters = {
+		dotfiles = false,
+	},
+        actions = {
+		open_file = {
+			quit_on_open = true,
+		},
+        },
+	git = {
+		ignore = false,
+		timeout = 800,
+	},
 })
 
 ---------------------------------------------------------------------------------
@@ -314,19 +319,19 @@ require("nvim-tree").setup({
 
 local npairs = require("nvim-autopairs")
 npairs.setup({
-        fast_wrap = {
-                map = "<M-e>",
-                chars = { "{", "[", "(", '"', "'" },
-                pattern = [=[[%'%"%>%]%)%}%,]]=],
-                end_key = "$",
-                before_key = "h",
-                after_key = "l",
-                cursor_pos_before = true,
-                keys = "qwertyuiopzxcvbnmasdfghjkl",
-                manual_position = true,
-                highlight = "Search",
-                highlight_grey = "Comment",
-        },
+	fast_wrap = {
+		map = "<M-e>",
+		chars = { "{", "[", "(", '"', "'" },
+		pattern = [=[[%'%"%>%]%)%}%,]]=],
+		end_key = "$",
+		before_key = "h",
+		after_key = "l",
+		cursor_pos_before = true,
+		keys = "qwertyuiopzxcvbnmasdfghjkl",
+		manual_position = true,
+		highlight = "Search",
+		highlight_grey = "Comment",
+	},
 })
 
 ---------------------------------------------------------------------------------
