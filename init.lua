@@ -89,7 +89,7 @@ vim.opt.spell = true
 
 vim.o.mouse = ''
 
--- copilot  node configuration 
+-- copilot  node configuration
 
 local node_version = "v18.20.4"
 local distribution = vim.fn.system("lsb_release -i -s")
@@ -102,3 +102,17 @@ end
 
 -- disable swap file
 vim.opt.swapfile = false
+
+-- install win32 yank for clipboard sync and support in wsl 
+vim.g.clipboard = {
+        name = 'win32yank',
+        copy = {
+                ['+'] = 'win32yank.exe -i --crlf',
+                ['*'] = 'win32yank.exe -i --crlf',
+        },
+        paste = {
+                ['+'] = 'win32yank.exe -o --lf',
+                ['*'] = 'win32yank.exe -o --lf',
+        },
+        cache_enabled = 0,
+}
