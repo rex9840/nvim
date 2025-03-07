@@ -176,7 +176,6 @@ require("telescope").setup({
 --[[for grep to work install ripgrep form the github : https://github.com/BurntSushi/ripgrep ]]
 --[[for smooth control over telescope install fuzzy finder fzf from the github :https://github.com/junegunn/fzf ]]
 
-pcall(require("telescope").load_extension, "file_browser")
 ---------------------------------------------------------------------
 --comment.nvim setup --
 
