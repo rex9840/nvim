@@ -282,7 +282,9 @@ end, 0)
 -----------------------------------------------------------------------
 -- outline
 require("outline").setup({
-        width = 10,
+        outline_window ={
+                auto_close = true,
+        },
         preview_window = {
                 auto_preview = true,
         },
