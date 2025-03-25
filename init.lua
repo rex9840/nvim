@@ -78,5 +78,3 @@ vim.o.mouse = ""
 
 -- disable swap file
 vim.opt.swapfile = false
-
-

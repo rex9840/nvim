@@ -67,10 +67,11 @@ null_ls.setup({
         sources = {
                 null_ls.builtins.formatting.black,
                 null_ls.builtins.formatting.stylua,
+                null_ls.builtins.formatting.prettier,
         },
 
         formatting = {
-                timeout_ms = 3200,
+                timeout_ms = 5000,
         },
 })
 
@@ -173,7 +174,7 @@ require("telescope").setup({
                 },
         },
 })
-require("telescope").load_extension("file_browser") 
+require("telescope").load_extension("file_browser")
 --[[for grep to work install ripgrep form the github : https://github.com/BurntSushi/ripgrep ]]
 --[[for smooth control over telescope install fuzzy finder fzf from the github :https://github.com/junegunn/fzf ]]
 
@@ -282,7 +283,7 @@ end, 0)
 -----------------------------------------------------------------------
 -- outline
 require("outline").setup({
-        outline_window ={
+        outline_window = {
                 auto_close = true,
         },
         preview_window = {
