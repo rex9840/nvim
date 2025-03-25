@@ -80,3 +80,9 @@ vim.o.mouse = ""
 vim.opt.swapfile = false
 
 
+-- formating before save --
+vim.api.nvim_create_autocmd("BufWritePre", {
+        callback = function()
+                vim.lsp.buf.format({ async = false }) -- Formats BEFORE saving
+        end
+})
