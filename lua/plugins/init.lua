@@ -59,7 +59,7 @@ require("mason-lspconfig").setup({
 })
 
 local null_ls = require("null-ls")
-local eslint = require("eslint")
+local eslint = require("eslint").setup({})
 
 -- null_ls setup --
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -72,6 +72,7 @@ null_ls.setup({
 
         formatting = {
                 timeout_ms = 5000,
+                async = true,
         },
 })
 
