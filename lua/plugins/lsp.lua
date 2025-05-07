@@ -1,20 +1,20 @@
 return {
 
         {
-                "neovim/nvim-lspconfig",
-                "williamboman/mason.nvim",
-                "williamboman/mason-lspconfig.nvim",
+                "mason-org/mason.nvim",
+                "mason-org/mason-lspconfig.nvim",
+                "neovim/nvim-lspconfig", 
                 cmd = "Mason",
                 build = ":MasonUpdate",
                 opts = {
                         ensure_installed = {
-				"lua_ls",
                                 "stylua",
                                 "shfmt",
                                 "flake8",
                         },
                 },
         },
+
         ---------------------------------------------------------------------
 
         {

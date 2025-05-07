@@ -16,7 +16,7 @@ end
 
 -- copilot  node configuration
 
-local node_version = "v18.20.4"
+local node_version = " v20.19.1"
 local distribution = vim.fn.system("lsb_release -i -s")
 distribution = distribution:gsub("%s+", "")
 

@@ -45,14 +45,49 @@ end
 --lsp mason setup --
 
 require("mason").setup({
-        ui = {
-                icons = {
-                        package_installed = "✓",
-                        package_pending = "➜",
-                        package_uninstalled = "✗",
-                },
-        },
+       ui = {
+               icons = {
+                       package_installed = "✓",
+                       package_pending = "➜",
+                       package_uninstalled = "✗",
+               },
+       },
 })
+
+local servers = {
+      clangd = {},
+      pyright = {},
+      gopls ={},
+      rust_analyzer = {},
+      bashls = {},
+      html = { filetypes = { "html", "twig", "hbs" } },
+      lua_ls = {
+              Lua = {
+                      workspace = { checkThirdParty = false },
+                      telemetry = { enable = false },
+                      -- diagnostics = { disable = { 'missing-fields' } },
+              },
+      },
+}
+
+-- local lspconfig =  require("lspconfig")
+-- for server, config in pairs(servers) do
+--     lspconfig[server].setup(config)
+-- end
+
+local ensure_installed = vim.tbl_keys(servers or {})
+vim.list_extend(ensure_installed,{})
+require('mason-lspconfig').setup {
+      ensure_install= ensure_install,
+      handlers = {
+        function(server_name)
+          local server = servers[server_name] or {}
+          server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+          require('lspconfig')[server_name].setup(server)
+        end,
+      },
+}
+
 
 local null_ls = require("null-ls")
 local eslint = require("eslint").setup({})
@@ -300,3 +335,4 @@ npairs.setup({
 })
 
 ---------------------------------------------------------------------------------
+---
