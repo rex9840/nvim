@@ -50,7 +50,6 @@ return {
                         -- Adds a number of user-friendly snippets
                         "rafamadriz/friendly-snippets",
                 },
-                build = "make install_jsregexp"
         },
 
         --------------------------------------------------------------------
