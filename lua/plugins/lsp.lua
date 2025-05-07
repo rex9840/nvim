@@ -8,6 +8,7 @@ return {
                 build = ":MasonUpdate",
                 opts = {
                         ensure_installed = {
+				"lua_ls",
                                 "stylua",
                                 "shfmt",
                                 "flake8",
