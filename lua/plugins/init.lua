@@ -45,29 +45,29 @@ end
 --lsp mason setup --
 
 require("mason").setup({
-       ui = {
-               icons = {
-                       package_installed = "✓",
-                       package_pending = "➜",
-                       package_uninstalled = "✗",
-               },
-       },
+        ui = {
+                icons = {
+                        package_installed = "✓",
+                        package_pending = "➜",
+                        package_uninstalled = "✗",
+                },
+        },
 })
 
 local servers = {
-      clangd = {},
-      pyright = {},
-      gopls ={},
-      rust_analyzer = {},
-      bashls = {},
-      html = { filetypes = { "html", "twig", "hbs" } },
-      lua_ls = {
-              Lua = {
-                      workspace = { checkThirdParty = false },
-                      telemetry = { enable = false },
-                      -- diagnostics = { disable = { 'missing-fields' } },
-              },
-      },
+        clangd = {},
+        pyright = {},
+        gopls = {},
+        rust_analyzer = {},
+        bashls = {},
+        html = { filetypes = { "html", "twig", "hbs" } },
+        lua_ls = {
+                Lua = {
+                        workspace = { checkThirdParty = false },
+                        telemetry = { enable = false },
+                        -- diagnostics = { disable = { 'missing-fields' } },
+                },
+        },
 }
 
 -- local lspconfig =  require("lspconfig")
@@ -76,16 +76,16 @@ local servers = {
 -- end
 
 local ensure_installed = vim.tbl_keys(servers or {})
-vim.list_extend(ensure_installed,{})
+vim.list_extend(ensure_installed, {})
 require('mason-lspconfig').setup {
-      ensure_install= ensure_install,
-      handlers = {
-        function(server_name)
-          local server = servers[server_name] or {}
-          server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-          require('lspconfig')[server_name].setup(server)
-        end,
-      },
+        ensure_install = ensure_install,
+        handlers = {
+                function(server_name)
+                        local server = servers[server_name] or {}
+                        server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+                        require('lspconfig')[server_name].setup(server)
+                end,
+        },
 }
 
 
@@ -286,6 +286,12 @@ require("outline").setup({
         preview_window = {
                 auto_preview = true,
         },
+})
+
+
+-----------------------------------------------------------------------
+require("which-key").setup({
+        preset = "helix",
 })
 
 ---------------------------------------------------------------------------------
