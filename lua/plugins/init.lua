@@ -65,7 +65,7 @@ local servers = {
                 Lua = {
                         workspace = { checkThirdParty = false },
                         telemetry = { enable = false },
-                        -- diagnostics = { disable = { 'missing-fields' } },
+                        diagnostics = { disable = { 'missing-fields' } },
                 },
         },
 }
@@ -249,8 +249,9 @@ require("lualine").get_config()
 
 -- treesitter setup --
 
--- [[ Configure Treesitter ]]
--- See `:help nvim-treesitter`
+
+require("treesitter-context").setup({})
+
 vim.defer_fn(function()
         require("nvim-treesitter.configs").setup({
                 -- Add languages to be installed here that you want installed for treesitter
@@ -277,6 +278,7 @@ vim.defer_fn(function()
                 auto_install = true,
         })
 end, 0)
+
 -----------------------------------------------------------------------
 -- outline
 require("outline").setup({
@@ -290,8 +292,20 @@ require("outline").setup({
 
 
 -----------------------------------------------------------------------
+
+
 require("which-key").setup({
         preset = "helix",
+        plugins = {
+                presets = {
+                        operators = false,
+                        motions = false,
+                        text_objects = false,
+                        marks = false,
+                        registers = false,
+                },
+
+        },
 })
 
 ---------------------------------------------------------------------------------
@@ -322,7 +336,7 @@ require("nvim-tree").setup({
 
 
 ---------------------------------------------------------------------------------
---- harpoon setup -- 
+--- harpoon setup --
 
 local harpoon = require('harpoon')
 harpoon:setup({})

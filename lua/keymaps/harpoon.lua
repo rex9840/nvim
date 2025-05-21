@@ -5,3 +5,6 @@ vim.keymap.set("n", "<leader>aa", function() harpoon:list():add() end, {
 })
 vim.keymap.set("n", "<leader>ae", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end,
         { desc = "h[A]rpoon [E]xplore" })
+
+vim.keymap.set("n", "<leader>ap", function() harpoon:list():prev() end, { desc = "h[A]rpoon [P]rev" })
+vim.keymap.set("n", "<leader>an", function() harpoon:list():next() end, { desc = "h[A]rpoon [N]ext" }) 
