@@ -249,8 +249,11 @@ require("lualine").get_config()
 
 -- treesitter setup --
 
+require("treesitter-context").setup({
+        mode = "topline",
 
-require("treesitter-context").setup({})
+
+})
 
 vim.defer_fn(function()
         require("nvim-treesitter.configs").setup({
@@ -281,7 +284,7 @@ end, 0)
 
 -----------------------------------------------------------------------
 -- outline
-require("outline").setup({
+require( "outline").setup({
         outline_window = {
                 auto_close = true,
         },
