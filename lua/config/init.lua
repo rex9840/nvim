@@ -2,6 +2,6 @@
 
 
 require("config.lazy")
-require("config.wsl")
+-- require("config.wsl")
 
 ---------------------------------------------------------------------

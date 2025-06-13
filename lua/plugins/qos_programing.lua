@@ -41,16 +41,16 @@ return {
         },
 
         -- key binding helper
-        {
-                "folke/which-key.nvim",
-                dependencies = {
-                        "echasnovski/mini.icons",
-                        "nvim-tree/nvim-web-devicons",
-                },
-                event = "VeryLazy",
-                opts = {},
-        },
-
+        -- {
+        --         "folke/which-key.nvim",
+        --         dependencies = {
+        --                 "echasnovski/mini.icons",
+        --                 "nvim-tree/nvim-web-devicons",
+        --         },
+        --         event = "VeryLazy",
+        --         opts = {},
+        -- },
+        --
         ---------------------------------------------------------------------
 
         -- auto paring of brases columns

@@ -8,3 +8,4 @@ vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = '[F]ind [B]uffers' }
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp tags' })
 vim.keymap.set("n", "<leader>bf", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", { desc = "Open file [B]rowser" })
 vim.keymap.set("n", '<leader>fe',builtin.diagnostics, { desc = '[F]ind [E]rrors' })
+vim.keymap.set("n","<leader>fk",builtin.keymaps,{desc="[F]ind [K]eymaps"})

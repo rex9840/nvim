@@ -297,19 +297,19 @@ require( "outline").setup({
 -----------------------------------------------------------------------
 
 
-require("which-key").setup({
-        preset = "helix",
-        plugins = {
-                presets = {
-                        operators = false,
-                        motions = false,
-                        text_objects = false,
-                        marks = false,
-                        registers = false,
-                },
-
-        },
-})
+-- require("which-key").setup({
+--         preset = "helix",
+--         plugins = {
+--                 presets = {
+--                         operators = false,
+--                         motions = false,
+--                         text_objects = false,
+--                         marks = false,
+--                         registers = false,
+--                 },
+--
+--         },
+-- })
 
 ---------------------------------------------------------------------------------
 require("nvim-tree").setup({
