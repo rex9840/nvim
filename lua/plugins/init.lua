@@ -12,36 +12,6 @@ require("lazy").setup({
 }, {})
 
 ---------------------------------------------------------------------
-
---lsp config --
-
-local on_attach = function(_, bufnr)
-        local nmap = function(keys, func, desc)
-                if desc then
-                        desc = "LSP: " .. desc
-                end
-
-                vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
-        end
-
-        nmap("K", vim.lsp.buf.hover, "Hover Documentation")
-        nmap("<C-K>", vim.lsp.buf.signature_help, "Signature Documentation")
-
-        -- Create a command `:Format` local to the LSP buffer
-        vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
-                vim.lsp.buf.format()
-        end, { desc = "Format current buffer with LSP" })
-
-        vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-                -- disable virtual text
-                virtual_text = false,
-                -- show signs
-                signs = true,
-        })
-end
-
----------------------------------------------------------------------
-
 --lsp mason setup --
 
 require("mason").setup({
@@ -313,6 +283,7 @@ require( "outline").setup({
 
 ---------------------------------------------------------------------------------
 require("nvim-tree").setup({
+        auto_close=true,
         sort = {
                 sorter = "case_sensitive",
         },
