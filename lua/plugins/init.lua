@@ -40,10 +40,6 @@ local servers = {
         },
 }
 
--- local lspconfig =  require("lspconfig")
--- for server, config in pairs(servers) do
---     lspconfig[server].setup(config)
--- end
 
 local ensure_installed = vim.tbl_keys(servers or {})
 vim.list_extend(ensure_installed, {})
@@ -52,7 +48,6 @@ require('mason-lspconfig').setup {
         handlers = {
                 function(server_name)
                         local server = servers[server_name] or {}
-                        server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
                         require('lspconfig')[server_name].setup(server)
                 end,
         },
@@ -246,8 +241,6 @@ vim.defer_fn(function()
                         "diff",
                         "git_rebase",
                 },
-
-                -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
                 auto_install = true,
         })
 end, 0)
