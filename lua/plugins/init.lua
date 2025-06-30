@@ -41,13 +41,16 @@ local servers = {
 }
 
 
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
 local ensure_installed = vim.tbl_keys(servers or {})
 vim.list_extend(ensure_installed, {})
 require('mason-lspconfig').setup {
-        ensure_install = ensure_install,
+        ensure_install = ensure_installed,
         handlers = {
                 function(server_name)
                         local server = servers[server_name] or {}
+                        server.capabilities = capabilities
                         require('lspconfig')[server_name].setup(server)
                 end,
         },
@@ -227,7 +230,6 @@ vim.defer_fn(function()
                         "c",
                         "cpp",
                         "go",
-                        "lua",
                         "python",
                         "rust",
                         "tsx",
