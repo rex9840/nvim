@@ -240,14 +240,19 @@ vim.defer_fn(function()
                         "gitcommit",
                         "diff",
                         "git_rebase",
+                        "markdown",
+                        "markdown_inline",
+                        "yaml",
                 },
                 auto_install = true,
+                highlight = { enable = true },
+                indent = { enable = true },
         })
 end, 0)
 
 -----------------------------------------------------------------------
 -- outline
-require( "outline").setup({
+require("outline").setup({
         outline_window = {
                 auto_close = true,
         },
@@ -276,7 +281,7 @@ require( "outline").setup({
 
 ---------------------------------------------------------------------------------
 require("nvim-tree").setup({
-        auto_close=true,
+        auto_close = true,
         sort = {
                 sorter = "case_sensitive",
         },

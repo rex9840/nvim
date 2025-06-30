@@ -2,7 +2,7 @@
 
 vim.keymap.set("n", "<leader>m", function()
         vim.lsp.buf.format()
-end, {desc ='for[M]at'}
+end, { desc = 'for[M]at' }
 )
 
 -- outline
