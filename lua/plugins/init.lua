@@ -223,34 +223,32 @@ require("treesitter-context").setup({
 
 })
 
-vim.defer_fn(function()
-        require("nvim-treesitter.configs").setup({
-                -- Add languages to be installed here that you want installed for treesitter
-                ensure_installed = {
-                        "c",
-                        "cpp",
-                        "go",
-                        "python",
-                        "rust",
-                        "tsx",
-                        "javascript",
-                        "typescript",
-                        "vimdoc",
-                        "vim",
-                        "bash",
-                        "lua",
-                        "gitcommit",
-                        "diff",
-                        "git_rebase",
-                        "markdown",
-                        "markdown_inline",
-                        "yaml",
-                },
-                auto_install = true,
-                highlight = { enable = true },
-                indent = { enable = true },
-        })
-end, 0)
+require("nvim-treesitter.configs").setup({
+        -- Add languages to be installed here that you want installed for treesitter
+        ensure_installed = {
+                "c",
+                "cpp",
+                "go",
+                "python",
+                "rust",
+                "tsx",
+                "javascript",
+                "typescript",
+                "vimdoc",
+                "vim",
+                "bash",
+                "lua",
+                "gitcommit",
+                "diff",
+                "git_rebase",
+                "markdown",
+                "markdown_inline",
+                "yaml",
+        },
+        auto_install = true,
+        highlight = { enable = true },
+        indent = { enable = true },
+})
 
 -----------------------------------------------------------------------
 -- outline
