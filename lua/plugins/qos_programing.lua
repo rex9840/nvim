@@ -38,6 +38,7 @@ return {
                         "nvim-treesitter/nvim-treesitter-context", 
                 },
                 build = ":TSUpdate",
+                lazy = false,
         },
 
         -- key binding helper
