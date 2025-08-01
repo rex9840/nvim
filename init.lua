@@ -78,3 +78,7 @@ vim.o.mouse = ""
 
 -- disable swap file
 vim.opt.swapfile = false
+
+
+-- show tabline
+vim.o.showtabline=2
