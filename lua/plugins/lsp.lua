@@ -22,7 +22,6 @@ return {
                 -- LSP Configuration & Plugins
                 "neovim/nvim-lspconfig",
                 "nvimtools/none-ls.nvim",
-                "MunifTanjim/eslint.nvim",
                 dependencies = {
                         -- Automatically install LSPs to stdpath for neovim
                         "williamboman/mason.nvim",

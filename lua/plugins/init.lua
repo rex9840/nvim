@@ -58,7 +58,6 @@ require('mason-lspconfig').setup {
 
 
 local null_ls = require("null-ls")
-local eslint = require("eslint").setup({})
 
 -- null_ls setup --
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -140,6 +139,7 @@ require("telescope").setup({
         },
 })
 require("telescope").load_extension("file_browser")
+require("telescope").load_extension('harpoon')
 --[[for grep to work install ripgrep form the github : https://github.com/BurntSushi/ripgrep ]]
 --[[for smooth control over telescope install fuzzy finder fzf from the github :https://github.com/junegunn/fzf ]]
 
