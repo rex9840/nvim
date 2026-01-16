@@ -82,3 +82,5 @@ vim.opt.swapfile = false
 
 -- show tabline
 vim.o.showtabline=2
+
+ 
