@@ -8,4 +8,10 @@ vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = '[F]ind [B]uffers' }
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp tags' })
 vim.keymap.set("n", "<leader>bf", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", { desc = "Open file [B]rowser" })
 vim.keymap.set("n", '<leader>fe',builtin.diagnostics, { desc = '[F]ind [E]rrors' })
-vim.keymap.set("n","<leader>fk",builtin.keymaps,{desc="[F]ind [K]eymaps"})
+vim.keymap.set("n","<leader>fm",builtin.keymaps,{desc="[F]ind key[M]aps"})
+vim.keymap.set("n","<leader>fc",builtin.commands,{desc="[F]ind [C]ommands"}) 
+vim.keymap.set("n","<leader>fr",builtin.lsp_references,{desc="[F]ind [R]eferences"}) 
+vim.keymap.set("n","<leader>fds",builtin.lsp_document_symbols,{desc="[F]ind [D]ocument [S]ymbols"}) 
+vim.keymap.set("n","<leader>fws",builtin.lsp_dynamic_workspace_symbols,{desc="[F]ind [W]orkspace [S]ymbols"}) 
+vim.keymap.set('n', '<leader>r', require('telescope.builtin').resume, { desc = 'Telescope [S]earch  [R]esume' })
+ 
